@@ -7,16 +7,6 @@
 #define PIN 7
 #define MAX_SIZE 4
 
-/*char* to_str(char buffer[4], int i)
-{
-  int index = 2; // reverse fill the buffer
-  
-  while (i != 0)
-  {
-    int current =  
-  
-}
-*/
 void setup()
 {
   ble_set_name("ev9");
@@ -52,8 +42,7 @@ void loop()
     duration = pulseIn(PIN, HIGH);
 
     cm = microsecondsToCentimeters(duration);
-        
-    //char* current_str = to_str(c, 
+         
     String distance = String(cm);
     for (int i = 0; i < distance.length() && MAX_SIZE; i++)
       str[i] = distance[i];
@@ -68,7 +57,7 @@ void loop()
     
     ble_do_events();
   
-    delay(10);
+    delay(1);
  
   } 
  
