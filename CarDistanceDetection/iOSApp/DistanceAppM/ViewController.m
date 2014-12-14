@@ -225,16 +225,28 @@
     // Create a UIImage from the sample buffer data
     self.image = [self imageFromSampleBuffer:sampleBuffer];
     
-    self.image = [UIImage imageWithCGImage:self.image.CGImage scale:self.image.scale orientation:UIImageOrientationDown];
+    int orientation = self.image.imageOrientation;
     
-    int orientation = 1;
+    UIDeviceOrientation device_orientation = [UIDevice currentDevice].orientation;
+    
+    if (device_orientation == UIDeviceOrientationPortrait)
+    {
+        self.image = [UIImage imageWithCGImage:self.image.CGImage scale:self.image.scale orientation:UIImageOrientationRight];
+    }
+    
+    else if (device_orientation == UIDeviceOrientationLandscapeLeft)
+    {
+        self.image = [UIImage imageWithCGImage:self.image.CGImage scale:self.image.scale orientation:UIImageOrientationDown];
+    }
     
     switch (self.image.imageOrientation) {
         case UIImageOrientationUp:
             orientation = 1;
+            
             break;
         case UIImageOrientationDown:
             orientation = 3;
+            
             break;
         case UIImageOrientationLeft:
             orientation = 8;
@@ -257,6 +269,7 @@
         default:
             break;
     }
+
     
     if (self.detectorOptions == nil)
     {
