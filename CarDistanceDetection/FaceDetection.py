@@ -4,7 +4,7 @@ import cv2
 import serial
 import time
 
-vc = cv2.VideoCapture(0)
+vc = cv2.VideoCapture(1)
 
 if vc.isOpened():
     print "vc is open!!"
@@ -14,7 +14,7 @@ if vc.isOpened():
 
 k = -1
 
-ser = serial.Serial('/dev/tty.usbmodem1431', 9600)
+#ser = serial.Serial('/dev/ttyACM0', 9600)
 
 face_cascade = cv2.CascadeClassifier("haarcascades/haarcascade_frontalface_default.xml")
 
@@ -39,8 +39,8 @@ while vc.isOpened():
     ret, img = vc.read()  # get a frame from the video card
     img = cv2.pyrDown(img)
 
-    if ret and (img is not None):
-        process_image(img)
+    #if ret and (img is not None):
+    #    process_image(img)
 
     cv2.imshow('input', img)
 
