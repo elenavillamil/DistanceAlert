@@ -4,7 +4,7 @@ import cv2
 import serial
 import time
 
-vc = cv2.VideoCapture(1)
+vc = cv2.VideoCapture(0)
 
 if vc.isOpened():
     print "vc is open!!"
