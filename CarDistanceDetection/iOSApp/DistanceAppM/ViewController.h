@@ -30,6 +30,6 @@
 @property int _count;
 
 @property bool did_sound_play;
-
+@property bool did_sound_play_2;
 @property bool is_person;
 @end

@@ -24,6 +24,7 @@
     self.DistanceLabel.text = @"Connecting Please Wait...";
     self.PersonLabel.text = @" ";
     self.did_sound_play = false;
+    self.did_sound_play_2 = false;
     self.is_person = false;
     
     m_ble_endpoint = [[BLE alloc] init];
@@ -99,7 +100,7 @@
         {
             self.did_sound_play = true;
             SystemSoundID sound_id;
-            NSString* alarm_sound_file = [[NSBundle mainBundle] pathForResource:@"Alarm Sound" ofType:@"mp3"];
+            NSString* alarm_sound_file = [[NSBundle mainBundle] pathForResource:@"Heartbeat" ofType:@"mp3"];
             AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:alarm_sound_file], &sound_id);
             AudioServicesPlaySystemSound(sound_id);
         }
@@ -288,7 +289,18 @@
             self._count++;
             
             if (self._count > 2)
+            {
                 NSLog(@"Eyes are closed");
+                self.PersonLabel.text = @"Careful. You are falling sleep!!";
+                if (!self.did_sound_play_2)
+                {
+                    SystemSoundID sound_id;
+                    NSString* alarm_sound_file = [[NSBundle mainBundle] pathForResource:@"Alarm Sound" ofType:@"mp3"];
+                    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:alarm_sound_file], &sound_id);
+                    AudioServicesPlaySystemSound(sound_id);
+                    self.did_sound_play_2 = true;
+                }
+            }
         }
         
         else
@@ -296,6 +308,8 @@
             self._eyes = false;
             self._count = 0;
             NSLog(@"Eyes are open");
+            self.PersonLabel.text = @"";
+            self.did_sound_play = false;
         }
     }
     

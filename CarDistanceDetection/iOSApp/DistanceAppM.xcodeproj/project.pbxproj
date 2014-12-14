@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30F762A1A3E03D5000A3950 /* Hearbeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F30F76291A3E03D5000A3950 /* Hearbeat.mp3 */; };
 		F311FEB319ECD0DF00EDFE04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F311FEB219ECD0DF00EDFE04 /* Foundation.framework */; };
 		F311FEB519ECD0DF00EDFE04 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F311FEB419ECD0DF00EDFE04 /* CoreGraphics.framework */; };
 		F311FEB719ECD0DF00EDFE04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F311FEB619ECD0DF00EDFE04 /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F30F76291A3E03D5000A3950 /* Hearbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hearbeat.mp3; sourceTree = "<group>"; };
 		F311FEAF19ECD0DF00EDFE04 /* DistanceAppM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DistanceAppM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F311FEB219ECD0DF00EDFE04 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F311FEB419ECD0DF00EDFE04 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +125,7 @@
 		F311FEB819ECD0DF00EDFE04 /* DistanceAppM */ = {
 			isa = PBXGroup;
 			children = (
+				F30F76291A3E03D5000A3950 /* Hearbeat.mp3 */,
 				F3EB50B11A06D91A00132F43 /* Alarm Sound.mp3 */,
 				F311FEC119ECD0DF00EDFE04 /* AppDelegate.h */,
 				F311FEC219ECD0DF00EDFE04 /* AppDelegate.m */,
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F311FECB19ECD0DF00EDFE04 /* Images.xcassets in Resources */,
+				F30F762A1A3E03D5000A3950 /* Hearbeat.mp3 in Resources */,
 				F311FEBD19ECD0DF00EDFE04 /* InfoPlist.strings in Resources */,
 				F311FEC619ECD0DF00EDFE04 /* Main.storyboard in Resources */,
 				F3EB50B21A06D91A00132F43 /* Alarm Sound.mp3 in Resources */,
