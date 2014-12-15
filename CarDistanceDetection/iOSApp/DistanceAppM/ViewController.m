@@ -98,6 +98,7 @@
         self.DistanceLabel.font = [UIFont systemFontOfSize:80];
         if(!self.did_sound_play)
         {
+            NSLog(@"Playing sound1");
             self.did_sound_play = true;
             SystemSoundID sound_id;
             NSString* alarm_sound_file = [[NSBundle mainBundle] pathForResource:@"Heartbeat" ofType:@"mp3"];
@@ -290,8 +291,9 @@
             
             if (self._count > 2)
             {
+                self.view.backgroundColor = [UIColor redColor];
                 NSLog(@"Eyes are closed");
-                self.PersonLabel.text = @"Careful. You are falling sleep!!";
+                //self.PersonLabel.text = @"Careful. You are falling sleep!!";
                 if (!self.did_sound_play_2)
                 {
                     SystemSoundID sound_id;
@@ -307,9 +309,9 @@
         {
             self._eyes = false;
             self._count = 0;
-            NSLog(@"Eyes are open");
-            self.PersonLabel.text = @"";
-            self.did_sound_play = false;
+            //NSLog(@"Eyes are open");
+            //self.PersonLabel.text = @"";
+            self.did_sound_play_2 = false;
         }
     }
     
