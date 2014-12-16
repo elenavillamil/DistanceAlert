@@ -6,6 +6,7 @@
 
 #define PIN 7
 #define MAX_SIZE 7
+#define SKIP_SIZE 20
 
 void setup()
 {
@@ -24,6 +25,8 @@ long microsecondsToCentimeters(long microseconds)
 
 void loop()
 {
+  int count = 0;
+  
   unsigned char str[MAX_SIZE];
   
   memset(str, 0, MAX_SIZE * sizeof(char));
@@ -31,10 +34,7 @@ void loop()
   while(1)
   {
     long duration, cm;
-    int number_bytes_to_send;
-
-    pinMode(PIN, OUTPUT);
-    digitalWrite(PIN, LOW);
+    int number_bytes_to_send = 0;
     delayMicroseconds(2);
 
     digitalWrite(PIN, HIGH);
@@ -49,7 +49,7 @@ void loop()
     String distance = String(cm);
     number_bytes_to_send = distance.length();
     
-    for (int i = 0; i < distance.length() && MAX_SIZE-1; i++)
+    for (int i = 0; i < distance.length() && MAX_SIZE-1; ++i)
       str[i] = distance[i];
      
     if (Serial.available() > 0)
@@ -58,14 +58,14 @@ void loop()
       if (char_read == '1')
       {
         str[distance.length()] = 'P';
-        number_bytes_to_send++;
+        ++number_bytes_to_send;
       }
       else if (char_read == '0')
       {
         str[distance.length()] = 'N';
-        number_bytes_to_send++;
+        ++number_bytes_to_send;
       }
-    }
+    } 
      
     if(ble_connected())
     {
