@@ -35,9 +35,6 @@ void loop()
   {
     long duration, cm;
     int number_bytes_to_send;
-
-    pinMode(PIN, OUTPUT);
-    digitalWrite(PIN, LOW);
     delayMicroseconds(2);
 
     digitalWrite(PIN, HIGH);
@@ -71,6 +68,8 @@ void loop()
         number_bytes_to_send++;
       }
     } 
+   
+    delay(100)
     
     //count = 0;
     //}
