@@ -55,25 +55,25 @@ void loop()
     for (int i = 0; i < distance.length() && MAX_SIZE-1; i++)
       str[i] = distance[i];
      
-    if (count == SKIP_SIZE)
-    { 
-      if (Serial.available() > 0)
+    //if (count == SKIP_SIZE)
+    //{
+    if (Serial.available() > 0)
+    {
+      char char_read = Serial.read();
+      if (char_read == '1')
       {
-        char char_read = Serial.read();
-        if (char_read == '1')
-        {
-          str[distance.length()] = 'P';
-          number_bytes_to_send++;
-        }
-        else if (char_read == '0')
-        {
-          str[distance.length()] = 'N';
-          number_bytes_to_send++;
-        }
-      } 
-      
-      count = 0;
-    }
+        str[distance.length()] = 'P';
+        number_bytes_to_send++;
+      }
+      else if (char_read == '0')
+      {
+        str[distance.length()] = 'N';
+        number_bytes_to_send++;
+      }
+    } 
+    
+    //count = 0;
+    //}
     
     ++count;
      
