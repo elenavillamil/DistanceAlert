@@ -16,6 +16,7 @@
     BLE* m_ble_endpoint;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *SleepLabel;
 @property (weak, nonatomic) IBOutlet UILabel *DistanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *PersonLabel;
 
@@ -32,4 +33,5 @@
 @property bool did_sound_play;
 @property bool did_sound_play_2;
 @property bool is_person;
+
 @end

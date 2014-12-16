@@ -26,6 +26,7 @@
     self.did_sound_play = false;
     self.did_sound_play_2 = false;
     self.is_person = false;
+    self.SleepLabel.text = @"";
     
     m_ble_endpoint = [[BLE alloc] init];
     [m_ble_endpoint controlSetup];
@@ -36,7 +37,7 @@
     self._eyes = false;
     self._count = 0;
     
-    [self setupCaptureSession];
+    //[self setupCaptureSession];
     
     [self performSelectorInBackground:@selector(bleConnect:) withObject:nil];
 }
@@ -293,7 +294,7 @@
             {
                 self.view.backgroundColor = [UIColor redColor];
                 NSLog(@"Eyes are closed");
-                //self.PersonLabel.text = @"Careful. You are falling sleep!!";
+                self.SleepLabel.text = @"Careful. You are falling sleep!!";
                 if (!self.did_sound_play_2)
                 {
                     SystemSoundID sound_id;
@@ -310,18 +311,10 @@
             self._eyes = false;
             self._count = 0;
             //NSLog(@"Eyes are open");
-            //self.PersonLabel.text = @"";
+            self.SleepLabel.text = @"";
             self.did_sound_play_2 = false;
         }
     }
-    
-    /*dispatch_async(dispatch_get_main_queue(), ^{
-     [self.image_view setImage:self.image];
-     
-     }); */
-    
-    //< Add your code here that uses the image >
-    
 }
 
 // Create a UIImage from sample buffer data
