@@ -37,7 +37,7 @@
     self._eyes = false;
     self._count = 0;
     
-    //[self setupCaptureSession];
+    [self setupCaptureSession];
     
     [self performSelectorInBackground:@selector(bleConnect:) withObject:nil];
 }
